@@ -8,13 +8,20 @@ import { HttpService } from '../shared/http.service';
 })
 export class HomeComponent implements OnInit {
   products: any[];
+  cols: any[];
 
   constructor(private httpServive: HttpService) { }
 
   ngOnInit() {
-    this.httpServive.get('api/products').subscribe(data => {
-      this.products = data;
+    this.httpServive.get('api/products').subscribe(response => {
+      this.products = response;
     });
+
+    this.cols = [
+      { field: 'name', header: 'Name' },
+      { field: 'description', header: 'Description' },
+      { field: 'price', header: 'Price' }
+    ];
   }
 
 }
