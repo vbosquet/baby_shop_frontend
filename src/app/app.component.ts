@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import { AngularTokenService } from 'angular-token';
 
 @Component({
   selector: 'app-root',
@@ -7,15 +6,8 @@ import { AngularTokenService } from 'angular-token';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  constructor(private tokenService: AngularTokenService) {
-    this.tokenService.signIn({
-      login:    'user@example.com',
-      password: 'monkey67'
-    }).subscribe(
-      res =>      console.log(res),
-      error =>    console.log(error)
-    );
-  }
+
+  constructor() {}
 
   ngOnInit(): void {}
 }

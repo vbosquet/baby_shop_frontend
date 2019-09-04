@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import { AngularTokenService } from 'angular-token';
 
 @Component({
   selector: 'app-auth-dialog',
@@ -11,7 +12,8 @@ export class AuthDialogComponent implements OnInit {
   authMode: string;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
-              public dialogRef: MatDialogRef<any>) {
+              public dialogRef: MatDialogRef<any>,
+              private tokenService: AngularTokenService) {
     this.authMode = data.authMode;
   }
 
@@ -19,6 +21,21 @@ export class AuthDialogComponent implements OnInit {
 
   onCloseClick(): void {
     this.dialogRef.close();
+  }
+
+  onLoginFormSubmit(event: any) {
+    this.tokenService.signIn({
+      'login': event.email,
+      'password': event.password
+    }).subscribe(
+      res => {
+        console.log(res);
+        this.dialogRef.close();
+      }, error => {
+        console.log(error);
+        this.dialogRef.close();
+      }
+    );
   }
 
 }

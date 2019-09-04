@@ -1,0 +1,24 @@
+<form [formGroup]="loginForm">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Email" formControlName="email">
+    <mat-error *ngIf="loginForm.get('email').hasError('email') && !loginForm.get('email').hasError('required')">
+      Please enter a valid email address
+    </mat-error>
+    <mat-error *ngIf="loginForm.get('email').hasError('required')">
+      Email is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Password" formControlName="password" [type]="hide ? 'password' : 'text'">
+    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+    <mat-error *ngIf="loginForm.get('password').hasError('required')">
+      Password is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <div class="row">
+    <button mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
+    <button mat-raised-button (click)="cancel.emit()">Cancel</button>
+  </div>
+</form>

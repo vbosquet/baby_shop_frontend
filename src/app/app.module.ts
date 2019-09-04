@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { TableModule } from 'primeng/table';
 import { AngularTokenModule } from 'angular-token';
@@ -14,13 +15,15 @@ import { ToolbarComponent } from './features/toolbar/toolbar.component';
 import { AuthDialogComponent } from './features/auth-dialog/auth-dialog.component';
 
 import { SharedModule } from './shared/shared.module';
+import { LoginFormComponent } from './features/login-form/login-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ToolbarComponent,
-    AuthDialogComponent
+    AuthDialogComponent,
+    LoginFormComponent
   ],
   imports: [
     BrowserModule,
@@ -31,9 +34,11 @@ import { SharedModule } from './shared/shared.module';
     BrowserAnimationsModule,
     AngularTokenModule.forRoot(
       {
+        apiBase: null,
         signInPath: 'auth/sign_in'
       }
-    )
+    ),
+    ReactiveFormsModule
   ],
   entryComponents: [
     AuthDialogComponent

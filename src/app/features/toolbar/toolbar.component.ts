@@ -15,11 +15,12 @@ export class ToolbarComponent implements OnInit {
 
   openDialog(mode: string) {
     const dialogRef = this.dialog.open(AuthDialogComponent, {
+      width: '800px',
       data: { authMode: mode } });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+    /* dialogRef.afterClosed().subscribe(result => {
+      console.log('MODAL CLOSED');
+    }); */
   }
 
 }
