@@ -28,6 +28,7 @@ export class HomeComponent implements OnInit {
     this.items = [
       {
         label: 'File',
+        icon: 'pi pi-fw pi-file',
         items: [{
           label: 'New',
           icon: 'pi pi-fw pi-plus',
