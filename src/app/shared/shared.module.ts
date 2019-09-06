@@ -6,13 +6,18 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 
+import { TableModule } from 'primeng/table';
+import { SlideMenuModule } from 'primeng/slidemenu';
+
 @NgModule({
   imports: [
     MatDialogModule,
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    TableModule,
+    SlideMenuModule
   ],
   declarations: [],
   exports: [
@@ -20,7 +25,9 @@ import { MatInputModule } from '@angular/material/input';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    TableModule,
+    SlideMenuModule
   ]
 })
 

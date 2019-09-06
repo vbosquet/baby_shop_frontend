@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { TableModule } from 'primeng/table';
 import { AngularTokenModule } from 'angular-token';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -30,7 +29,6 @@ import { LoginFormComponent } from './features/login-form/login-form.component';
     SharedModule,
     HttpClientModule,
     AppRoutingModule,
-    TableModule,
     BrowserAnimationsModule,
     AngularTokenModule.forRoot(
       {
