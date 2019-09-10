@@ -1,31 +1,38 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { AngularTokenService } from 'angular-token';
 
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
-  styleUrls: ['./login-form.component.css']
+  styleUrls: ['./login-form.component.scss']
 })
 export class LoginFormComponent implements OnInit {
 
   loginForm: FormGroup;
-  hide: boolean;
 
-  @Output() formSubmit = new EventEmitter<any>();
-  @Output() cancel = new EventEmitter<any>();
+  constructor(public fb: FormBuilder,
+              private tokenService: AngularTokenService) {
 
-  constructor(private formBuilder: FormBuilder) { }
-
-  ngOnInit() {
-    this.loginForm = this.formBuilder.group({
-      'email': [null, [Validators.required, Validators.email]],
-      'password': [null, [Validators.required]]
+    this.loginForm = fb.group({
+      login: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required],
     });
-    this.hide = true;
   }
 
-  onSubmit() {
-    this.formSubmit.emit(this.loginForm.value);
+  ngOnInit() {}
+
+  onValidateForm() {
+    if (this.loginForm.valid) {
+      console.log('FORM: ', this.loginForm.value);
+      this.tokenService.signIn(this.loginForm.value).subscribe(
+        res => {
+          console.log(res);
+        }, error => {
+          console.log(error);
+        }
+      );
+    }
   }
 
 }

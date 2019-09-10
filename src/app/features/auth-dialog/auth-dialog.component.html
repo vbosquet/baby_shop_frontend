@@ -1,7 +1,0 @@
-<h1 mat-dialog-title>{{ authMode.toUpperCase() }}</h1>
-<div mat-dialog-content>
-  <app-login-form (formSubmit)="onLoginFormSubmit($event)"
-                  (cancel)="onCloseClick()"
-                  *ngIf="authMode == 'login'">
-  </app-login-form>
-</div>

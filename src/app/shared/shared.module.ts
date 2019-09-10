@@ -11,6 +11,14 @@ import { MatListModule } from '@angular/material/list';
 import { TableModule } from 'primeng/table';
 import { SlideMenuModule } from 'primeng/slidemenu';
 
+// MDB Angular Free
+import { CheckboxModule,
+  WavesModule,
+  ButtonsModule,
+  InputsModule,
+  IconsModule,
+  CardsModule } from 'angular-bootstrap-md';
+
 @NgModule({
   imports: [
     MatDialogModule,
@@ -21,7 +29,13 @@ import { SlideMenuModule } from 'primeng/slidemenu';
     TableModule,
     SlideMenuModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    CheckboxModule,
+    WavesModule,
+    ButtonsModule,
+    InputsModule,
+    IconsModule,
+    CardsModule
   ],
   declarations: [],
   exports: [
@@ -33,7 +47,13 @@ import { SlideMenuModule } from 'primeng/slidemenu';
     TableModule,
     SlideMenuModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    CheckboxModule,
+    WavesModule,
+    ButtonsModule,
+    InputsModule,
+    IconsModule,
+    CardsModule
   ]
 })
 
