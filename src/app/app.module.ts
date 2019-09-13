@@ -14,8 +14,9 @@ import { ToolbarComponent } from './features/toolbar/toolbar.component';
 
 import { SharedModule } from './shared/shared.module';
 import { LoginFormComponent } from './features/login-form/login-form.component';
-import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component';
+import { PublicLayoutComponent } from './layouts/public-layout/public-layout.component';
 import { LoginLayoutComponent } from './layouts/login-layout/login-layout.component';
+import { RestrictedLayoutComponent } from './layouts/restricted-layout/restricted-layout.component';
 
 @NgModule({
   declarations: [
@@ -23,8 +24,9 @@ import { LoginLayoutComponent } from './layouts/login-layout/login-layout.compon
     HomeComponent,
     ToolbarComponent,
     LoginFormComponent,
-    HomeLayoutComponent,
-    LoginLayoutComponent
+    PublicLayoutComponent,
+    LoginLayoutComponent,
+    RestrictedLayoutComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +40,8 @@ import { LoginLayoutComponent } from './layouts/login-layout/login-layout.compon
         apiBase: null,
         signInPath: 'auth/sign_in',
         signOutPath: 'auth/sign_out',
+        signInRedirect: '/home',
+        signInStoredUrlStorageKey: 'redirectTo'
       }
     ),
     ReactiveFormsModule,

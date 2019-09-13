@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HomeLayoutComponent } from './home-layout.component';
+import { RestrictedLayoutComponent } from './restricted-layout.component';
 
-describe('HomeLayoutComponent', () => {
-  let component: HomeLayoutComponent;
-  let fixture: ComponentFixture<HomeLayoutComponent>;
+describe('RestrictedLayoutComponent', () => {
+  let component: RestrictedLayoutComponent;
+  let fixture: ComponentFixture<RestrictedLayoutComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomeLayoutComponent ]
+      declarations: [ RestrictedLayoutComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HomeLayoutComponent);
+    fixture = TestBed.createComponent(RestrictedLayoutComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

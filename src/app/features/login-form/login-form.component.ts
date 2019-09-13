@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { AngularTokenService } from 'angular-token';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
@@ -12,7 +13,8 @@ export class LoginFormComponent implements OnInit {
   loginForm: FormGroup;
 
   constructor(public fb: FormBuilder,
-              private tokenService: AngularTokenService) {
+              private tokenService: AngularTokenService,
+              private router: Router) {
 
     this.loginForm = fb.group({
       login: ['', [Validators.required, Validators.email]],
@@ -24,10 +26,10 @@ export class LoginFormComponent implements OnInit {
 
   onValidateForm() {
     if (this.loginForm.valid) {
-      console.log('FORM: ', this.loginForm.value);
       this.tokenService.signIn(this.loginForm.value).subscribe(
         res => {
-          console.log(res);
+          this.router.navigate(['/myaccount']);
+          // this.router.navigateByUrl(localStorage.getItem('redirectTo'));
         }, error => {
           console.log(error);
         }

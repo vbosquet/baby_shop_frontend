@@ -1,11 +1,21 @@
-<div>
-  <mat-toolbar color="primary">
-    <mat-toolbar-row>
-      <span>Baby Shop</span>
-      <span class="example-spacer"></span>
-      <button *ngIf="!isSignIn" mat-button class="example-icon">REGISTER</button>
-      <button *ngIf="!isSignIn" mat-button class="example-icon">LOGIN</button>
-      <button *ngIf="isSignIn" mat-button class="example-icon" (click)="signOut()">LOGOUT</button>
-    </mat-toolbar-row>
-  </mat-toolbar>
-</div>
+<!--Navbar-->
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark cyan" [containerInside]="false">
+
+  <!-- Navbar brand -->
+  <mdb-navbar-brand><a class="navbar-brand" href="#">Baby Shop</a></mdb-navbar-brand>
+
+  <!-- Collapsible content -->
+  <links>
+
+    <!-- Links -->
+    <ul class="navbar-nav ml-auto">
+      <li *ngFor="let action of links" class="nav-item">
+        <a class="nav-link waves-light" mdbWavesEffect (click)="executeAction(action)">{{ getActionLabel(action) }}</a>
+      </li>
+    </ul>
+    <!-- Links -->
+  </links>
+  <!-- Collapsible content -->
+
+</mdb-navbar>
+<!--/.Navbar-->
