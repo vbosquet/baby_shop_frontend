@@ -30,6 +30,7 @@ export class ToolbarComponent implements OnInit {
         this.router.navigate(['/login']);
         break;
       case 'SIGN_UP':
+        this.router.navigate(['/register']);
         break;
       case 'SIGN_OUT':
         this.signOut();

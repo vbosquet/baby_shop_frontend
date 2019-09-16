@@ -15,8 +15,9 @@ import { ToolbarComponent } from './features/toolbar/toolbar.component';
 import { SharedModule } from './shared/shared.module';
 import { LoginFormComponent } from './features/login-form/login-form.component';
 import { PublicLayoutComponent } from './layouts/public-layout/public-layout.component';
-import { LoginLayoutComponent } from './layouts/login-layout/login-layout.component';
+import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { RestrictedLayoutComponent } from './layouts/restricted-layout/restricted-layout.component';
+import { RegisterFormComponent } from './features/register-form/register-form.component';
 
 @NgModule({
   declarations: [
@@ -25,8 +26,9 @@ import { RestrictedLayoutComponent } from './layouts/restricted-layout/restricte
     ToolbarComponent,
     LoginFormComponent,
     PublicLayoutComponent,
-    LoginLayoutComponent,
-    RestrictedLayoutComponent
+    AuthLayoutComponent,
+    RestrictedLayoutComponent,
+    RegisterFormComponent
   ],
   imports: [
     BrowserModule,
@@ -37,11 +39,12 @@ import { RestrictedLayoutComponent } from './layouts/restricted-layout/restricte
     MDBBootstrapModule.forRoot(),
     AngularTokenModule.forRoot(
       {
-        apiBase: null,
+        apiBase: 'http://localhost:3000',
         signInPath: 'auth/sign_in',
         signOutPath: 'auth/sign_out',
         signInRedirect: '/home',
-        signInStoredUrlStorageKey: 'redirectTo'
+        signInStoredUrlStorageKey: 'redirectTo',
+        registerAccountPath: 'auth'
       }
     ),
     ReactiveFormsModule,

@@ -29,7 +29,6 @@ export class LoginFormComponent implements OnInit {
       this.tokenService.signIn(this.loginForm.value).subscribe(
         res => {
           this.router.navigate(['/myaccount']);
-          // this.router.navigateByUrl(localStorage.getItem('redirectTo'));
         }, error => {
           console.log(error);
         }
