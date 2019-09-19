@@ -8,9 +8,19 @@
   <links>
 
     <!-- Links -->
-    <ul class="navbar-nav ml-auto">
+    <ul *ngIf="!isRestrictedToolbar" class="navbar-nav ml-auto">
       <li *ngFor="let action of links" class="nav-item">
         <a class="nav-link waves-light" mdbWavesEffect (click)="executeAction(action)">{{ getActionLabel(action) }}</a>
+      </li>
+    </ul>
+
+    <ul *ngIf="isRestrictedToolbar" class="navbar-nav ml-auto">
+      <li *ngFor="let action of links" class="nav-item dropdown" dropdown>
+        <a dropdownToggle type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+          {{ userData?.name }}<span class="caret"></span></a>
+        <div  *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
+          <a class="dropdown-item waves-light" mdbWavesEffect (click)="executeAction(action)">{{ getActionLabel(action) }}</a>
+        </div>
       </li>
     </ul>
     <!-- Links -->

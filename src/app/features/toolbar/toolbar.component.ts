@@ -10,15 +10,21 @@ import { AngularTokenService } from 'angular-token';
 export class ToolbarComponent implements OnInit {
 
   isSignIn: boolean;
+  userData: any;
   @Input() links: any[];
+  @Input() isRestrictedToolbar: boolean;
 
   constructor(private tokenService: AngularTokenService,
-              private router: Router) {
+              private router: Router) {}
 
+  ngOnInit(): void {
     this.isSignIn = this.tokenService.userSignedIn();
+    if (this.isRestrictedToolbar) {
+      this.tokenService.validateToken().subscribe( res => {
+        this.userData = this.tokenService.currentUserData;
+      });
+    }
   }
-
-  ngOnInit(): void {}
 
   getActionLabel(action: string): string {
     return TOOLBAR_LINKS[action] || '';
